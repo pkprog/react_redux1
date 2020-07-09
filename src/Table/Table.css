@@ -1,0 +1,7 @@
+table.mainTable {
+    border: 1px solid blue;
+}
+
+th.header {
+    background: #dbe1e2;
+}
