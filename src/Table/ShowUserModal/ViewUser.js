@@ -1,4 +1,5 @@
 import React from "react";
+import Modal from "react-bootstrap/Modal";
 
 import './ViewUser.css';
 
@@ -8,7 +9,6 @@ export default class ViewUserModal extends React.Component {
         super(props);
         this.state = {
             user: props.user,
-            showModal: true
         };
         this.onClose = props.onClose;
         //
@@ -16,23 +16,25 @@ export default class ViewUserModal extends React.Component {
     };
 
     handleModal = function(event) {
-        this.setState({showModal: false});
         this.onClose(event);
     };
 
     render () {
         return (
             <React.Fragment>
-                {
-                    this.state.showModal &&
-                    <div className="modal2">
-                        <div className="modal-body2">
-                            <h5>Просмотр пользователя: {this.state.user.name}</h5>
-                            <div>Инфо: <UserInfo user={this.state.user} /></div>
-                            <button onClick={this.handleModal}>Close modal</button>
+                <Modal show={true} onHide={this.handleModal} backdrop="static">
+                    <Modal.Body>
+                        <div className="container-fluid">
+                            <div className="row">
+                                <div className="col-12">
+                                    <h5>Просмотр пользователя: {this.state.user.name}</h5>
+                                    <div>Инфо: <UserInfo user={this.state.user} /></div>
+                                    <button className="btn btn-primary" onClick={this.handleModal}>Close modal</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                }
+                    </Modal.Body>
+                </Modal>
             </React.Fragment>
         );
     };

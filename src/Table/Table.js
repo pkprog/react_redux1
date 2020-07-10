@@ -1,7 +1,7 @@
 import React from 'react';
 import TrHeader from "./TrHeader";
 import './Table.css'
-import TrBody from "./TrBody";
+import TableRow from "./TableRow";
 import ViewUserModal from "./ShowUserModal/ViewUser";
 
 const data = [
@@ -9,39 +9,19 @@ const data = [
     {num: 2, name: "Ира"}
 ];
 
-// function onRowClick(event) {
-//     console.log("123");
-// }
-
-export default function Table() {
-    const state = {
-        user: {}
-    };
-
-    const onRowClick = function(event, user) {
-        this.setState({
-            user: user
-        });
-        console.log("123");
-    };
+export default function Table({onRowClick}) {
 
     return (
-        <div className="col-12">
-            <div className="row">
-                <table className="mainTable col-8 table table-bordered">
-                    <TrHeader />
-                    <tbody>
-                    {
-                        data.map((v, index) => {
-                            return (
-                                <TrBody key={v.num} user={v} />
-                                );
-                        })
-                    }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <table className="mainTable col-8 table table-bordered">
+            <TrHeader />
+            <tbody>
+            {
+                data.map((v, index) => {
+                    return <TableRow key={v.num} user={v} onRowClick={onRowClick}/>;
+                })
+            }
+            </tbody>
+        </table>
     );
 }
 

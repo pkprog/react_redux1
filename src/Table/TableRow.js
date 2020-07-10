@@ -3,19 +3,19 @@ import './Table.css'
 import ViewUserModal from "./ShowUserModal/ViewUser";
 import 'bootstrap-icons/bootstrap-icons.svg'
 
-export default function TrBody({user}) {
-    const [trState, setTrState] = useState({isOpened: false});
+const TableRow = ({user, onRowClick}) => {
+    // const [trState, setTrState] = useState({isOpened: false});
 
     const onClick = function(event) {
-        setTrState({isOpened: true});
+        onRowClick(user);
     };
 
-    const userCardClosed = function(event) {
-        setTrState({isOpened: false});
-    };
+    // const userCardClosed = function(event) {
+        // setTrState({isOpened: false});
+    // };
 
     return (
-        <tr>
+        <tr onClick={onClick}>
             <td>{user.num}</td>
             <td><span>{user.name}</span>
                 <button onClick={onClick} type="button" className="btn">
@@ -27,8 +27,9 @@ export default function TrBody({user}) {
                               d="M14.354 1.646a.5.5 0 0 1 0 .708l-8 8a.5.5 0 0 1-.708-.708l8-8a.5.5 0 0 1 .708 0z"/>
                     </svg>
                 </button>
-                {trState.isOpened ? <ViewUserModal user={user} onClose={userCardClosed} /> : null}
             </td>
         </tr>
     );
-}
+};
+
+export default TableRow;
