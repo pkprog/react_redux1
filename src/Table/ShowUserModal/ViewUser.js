@@ -51,22 +51,18 @@ class UserInfo extends React.Component {
     render () {
         return (
             <form>
-            {/*<div className="row">*/}
-            {/*    <div className="col-12">*/}
-                    <div className="form-group row">
-                        <label className="col-form-label col-6">Номер</label>
-                        <div className="col-6">
-                            <span className="form-control">{this.props.user.num}</span>
-                        </div>
+                <div className="form-group row">
+                    <label className="col-form-label col-6">Номер</label>
+                    <div className="col-6">
+                        <span className="form-control">{this.props.user.num}</span>
                     </div>
-                    <div className="form-group row">
-                        <label className="col-form-label col-6">Имя</label>
-                        <div className="col-6">
-                            <span className="form-control">{this.props.user.name}</span>
-                        </div>
+                </div>
+                <div className="form-group row">
+                    <label className="col-form-label col-6">Имя</label>
+                    <div className="col-6">
+                        <span className="form-control">{this.props.user.name}</span>
                     </div>
-                {/*</div>*/}
-            {/*</div>*/}
+                </div>
             </form>
         );
     };

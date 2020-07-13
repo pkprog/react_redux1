@@ -11,9 +11,11 @@ export default function TableWithViewModal() {
 
     const viewUserModalFunctions = {
         open: function(user) {
-            setVuState((prevState) => {
-                return {...prevState, viewUserModalOpened: true, user: user};
-            });
+            if (!vuState.viewUserModalOpened) {
+                setVuState((prevState) => {
+                    return {...prevState, viewUserModalOpened: true, user: user};
+                });
+            }
         },
         closed: function() {
             setVuState((prevState) => {

@@ -2,7 +2,6 @@ import React from 'react';
 import TrHeader from "./TrHeader";
 import './Table.css'
 import TableRow from "./TableRow";
-import ViewUserModal from "./ShowUserModal/ViewUser";
 
 const data = [
     {num: 1, name: "Анна"},
