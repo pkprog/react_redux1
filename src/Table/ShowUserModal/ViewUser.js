@@ -22,7 +22,7 @@ export default class ViewUserModal extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <Modal show={true} onHide={this.handleModal} backdrop="static">
+                <Modal show={true} onHide={this.handleModal} backdrop="static" size="lg">
                     <Modal.Body>
                         <div className="container-fluid">
                             <div className="row">
@@ -52,15 +52,21 @@ class UserInfo extends React.Component {
         return (
             <form>
                 <div className="form-group row">
-                    <label className="col-form-label col-6">Номер</label>
-                    <div className="col-6">
+                    <label className="col-form-label col-3">Номер</label>
+                    <div className="col-9">
                         <span className="form-control">{this.props.user.num}</span>
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className="col-form-label col-6">Имя</label>
-                    <div className="col-6">
+                    <label className="col-form-label col-3">Имя</label>
+                    <div className="col-9">
                         <span className="form-control">{this.props.user.name}</span>
+                    </div>
+                </div>
+                <div className="form-group row">
+                    <label className="col-form-label col-3">Имя</label>
+                    <div className="col-9">
+                        <textarea className="form-control" rows={3}>{this.props.user.moment}</textarea>
                     </div>
                 </div>
             </form>

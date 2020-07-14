@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import ViewUserModal from "./ShowUserModal/ViewUser";
 import Table from "./Table";
 
-export default function TableWithViewModal() {
+export default function TableWithViewModal({tableData}) {
     const initialStateViewUserModal = {
         viewUserModalOpened: false,
         user: null
@@ -37,7 +37,7 @@ export default function TableWithViewModal() {
                     :
                     null
             }
-            <Table onRowClick={tableFunctions.rowClicked}/>
+            <Table onRowClick={tableFunctions.rowClicked} tableData={tableData}/>
         </div>
     );
 }
