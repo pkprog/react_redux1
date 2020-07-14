@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import 'bootstrap-icons/bootstrap-icons.svg'
 
-export default function OpenModalByRowClickButton(props) {
+function OpenModalByRowClickButton(props) {
     const {onClick} = props;
 
     return (
@@ -16,3 +17,9 @@ export default function OpenModalByRowClickButton(props) {
         </button>
     );
 }
+
+OpenModalByRowClickButton.propTypes = {
+    onClick: PropTypes.func.isRequired
+};
+
+export default OpenModalByRowClickButton;

@@ -1,8 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import './Table.css'
 import OpenModalByRowClickButton from "./OpenModalByRowClickButton";
 
-const TableRow = ({user, onRowClick}) => {
+const TableRow = (props) => {
+    const {user, onRowClick} = props;
+
     const onClick = function(event) {
         onRowClick(user);
     };
@@ -15,6 +19,11 @@ const TableRow = ({user, onRowClick}) => {
             </td>
         </tr>
     );
+};
+
+TableRow.propTypes = {
+    user: PropTypes.object.isRequired,
+    onRowClick: PropTypes.func.isRequired
 };
 
 export default TableRow;

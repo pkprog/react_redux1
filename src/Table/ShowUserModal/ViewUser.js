@@ -1,10 +1,11 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
+import PropTypes from "prop-types";
 
 import './ViewUser.css';
 
 
-export default class ViewUserModal extends React.Component {
+class ViewUserModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -66,10 +67,26 @@ class UserInfo extends React.Component {
                 <div className="form-group row">
                     <label className="col-form-label col-3">Имя</label>
                     <div className="col-9">
-                        <textarea className="form-control" rows={3}>{this.props.user.moment}</textarea>
+                        <textarea className="form-control" rows={3} value={this.props.user.moment} readOnly={true}/>
                     </div>
                 </div>
             </form>
         );
     };
 }
+
+ViewUserModal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    user: PropTypes.shape({
+        name: PropTypes.string.isRequired
+    })
+};
+
+UserInfo.propTypes = {
+    user: PropTypes.shape({
+        num: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired
+    })
+};
+
+export default ViewUserModal;
